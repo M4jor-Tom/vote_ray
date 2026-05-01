@@ -1,5 +1,5 @@
 {
-  description = "Rust REST API backend with Postgres + opencode (Hugging Face models)";
+  description = "Vote Ray Backend - Rust voting system with SeaORM";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -24,7 +24,7 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          name = "rust-rest-backend";
+          name = "vote-ray-backend";
 
           buildInputs = [
             rustToolchain
@@ -42,21 +42,13 @@
           ];
 
           shellHook = ''
-            echo "🦀 Rust REST API dev shell"
-            echo "📦 Postgres available via pg_ctl"
-            echo "🤖 opencode available via npx opencode"
+            echo "🦀 Vote Ray Backend - Nix development environment"
+            echo "📊 PostgreSQL: podman run -d -p 5432:5432 -e POSTGRES_DB=vote_ray -e POSTGRES_USER=vote_ray -e POSTGRES_PASSWORD=dev postgres:15"
+            echo "🚀 Start development: cargo run"
+            echo "📚 Swagger docs: http://localhost:3000/swagger-ui"
 
             # Database defaults
-            export DATABASE_URL="postgres://postgres:postgres@localhost:5432/app"
-
-            # Hugging Face (set your token!)
-            export HUGGINGFACE_API_TOKEN="__SET_ME__"
-
-            # Example free models
-            export OPENCODE_MODEL="mistralai/Mistral-7B-Instruct-v0.2"
-
-            # Make sure local node tools are usable
-            export PATH="$PWD/node_modules/.bin:$PATH"
+            export DATABASE_URL="postgresql://vote_ray:dev@localhost:5432/vote_ray"
           '';
         };
       }

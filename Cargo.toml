@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 # Async runtime
-tokio = { version = "1.37", features = ["macros", "rt-multi-thread"] }
+tokio = { version = "1.37", features = ["macros", "rt-multi-thread", "signal"] }
 
 # Web framework
 axum = { version = "0.7", features = ["macros", "json"] }
@@ -34,9 +34,17 @@ thiserror = "1.0"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
+# Async runtime
+async-std = { version = "1", features = ["attributes", "tokio1"] }
+
 # Configuration
 dotenvy = "0.15"
 
 # OpenAPI/Swagger documentation
 utoipa = { version = "4.2", features = ["axum_extras"] }
 utoipa-swagger-ui = { version = "6.0", features = ["axum"] }
+
+# Container management for database
+tokio-util = "0.7"
+futures = "0.3"
+bollard = "0.16"
