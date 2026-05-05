@@ -1,0 +1,3 @@
+[submodule "ai-dev-tasks"]
+	path = ai-dev-tasks
+	url = git@github.com:snarktank/ai-dev-tasks.git
