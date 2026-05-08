@@ -1,3 +1,9 @@
 [submodule "ai-dev-tasks"]
 	path = ai-dev-tasks
 	url = git@github.com:snarktank/ai-dev-tasks.git
+[submodule "vote_ray_backend.rs"]
+	path = vote_ray_backend.rs
+	url = git@github.com:M4jor-Tom/vote_ray_backend.rs.git
+[submodule "vote_ray_frontend.react.ts"]
+	path = vote_ray_frontend.react.ts
+	url = git@github.com:M4jor-Tom/vote_ray_frontend.react.ts.git
